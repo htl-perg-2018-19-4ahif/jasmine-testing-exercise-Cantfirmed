@@ -43,7 +43,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should disable add button if description of price are empty', () => {
+  it('should disable add button if description and price are empty', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const de = fixture.debugElement;
     const ne: HTMLElement = de.nativeElement;
@@ -66,7 +66,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const de = fixture.debugElement;
     const ne: HTMLElement = de.nativeElement;
-    const app: AppComponent = de.componentInstance;
 
     fixture.detectChanges();
 
@@ -112,8 +111,8 @@ describe('AppComponent', () => {
     fixture.detectChanges();
 
     const totalPriceInclusiveVatInput: HTMLTableDataCellElement = ne.querySelector('#totalPriceInclusiveVat');
-    expect(totalPriceInclusiveVatInput.textContent).toBe('84.00');
+    expect(totalPriceInclusiveVatInput.textContent.trim()).toBe('84.00');
     const totalPriceExclusiveVatInput: HTMLTableDataCellElement = ne.querySelector('#totalPriceExclusiveVat');
-    expect(totalPriceExclusiveVatInput.textContent).toBe('42.00');
+    expect(totalPriceExclusiveVatInput.textContent.trim()).toBe('42.00');
   });
 });
